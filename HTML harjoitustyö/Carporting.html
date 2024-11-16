@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <META charset="UTF-8"/>
+    <link rel="stylesheet" href="Carporting.css">
+    <script src="Carporting.js"></script>
+</head>
+<body>
+    <img src="Carporting-logo.png" alt="logo">
+    <!-- Search bar -->
+    <input type="text" id="mySearch" onkeyup="filterAll()" placeholder="Search..." title="Type in a category">
+    <!-- Tab links -->
+<div class="tab">
+    <button class="tablinks" id="tulleetN" onclick="openTab(event, 'tulleet')">Order list</button>
+    <button class="tablinks" onclick="openTab(event, 'luettelo')">Product catalogue</button>
+    <button class="tablinks" onclick="document.getElementById('kokeilu').style.display='block'" id="kirjaudu">Sign out</button>
+</div>
+
+  <!-- Tab content -->
+  <!-- Tulleiden tilausten luettelo -->
+  <div id="tulleet" class="tabcontent">
+    
+    <div>
+      <table class="taulukko2" id="tilaukset">
+        <tr class="header">
+          <th>Order ID</th>
+          <th>Customer ID</th>
+          <th>Customer</th>
+          <th onclick="sortDate()" style="cursor: default">Delivery date</th>
+        </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr id="taulukko"></tr>
+      </table>
+    </div>
+
+    <button onclick="meneTop()" id="top" title="Go to top">⇧</button>
+    <button onclick="back()" id="backB">⇦</button>
+    <button onclick="keraily()" id="keraily">Click to Collect</button>
+    <button onclick="valmis()" id="kerailyValmis">Ready</button>
+    <button onclick="printTab()" id="printB">Print</button>
+
+    <!-- Tilausnäkymä -->
+    <div class="box" id="tilausnakyma">
+      <table id="tilausN">
+        <tr>
+          </tr>
+          <tr id="tilausNaytto"></tr>
+        </table>
+
+        <table id="tilausN2">
+          <tr>
+        </tr>
+        <tr id="tilausNaytto2"></tr>
+      </table>
+
+      <table id="tilatutT">
+        <tr>
+          <th>Code</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Unit Price</th>
+        </tr>
+        <tr id="tulleettuotteet"></tr>
+    </table>
+
+    <table id="tilausN3">
+      <tr>
+        <th>Client's Comment</th>
+      </tr>
+      <tr id="tilausNaytto3"></tr>
+    </table>
+
+    <table id="tilausN4">
+      <tr>
+      </tr>
+      <tr id="tilausNaytto4"></tr>
+    </table>
+    <p></p>
+    </div>
+
+<!-- Keräilytila -->
+  <div class="box" id="kerailytila">
+    <p id="kerailyotsikko">Ordered products</p>
+  <table id="kerailyT">
+    <tr>
+      <th></th>
+      <th>Code</th>
+      <th>Product</th>
+      <th>Quantity</th>
+    </tr>
+    <tr>
+      <td></td>
+    </tr>
+    <tr id="lahtevatT"></tr>
+  </table>
+  <p id="kommenttiO">Remarks :</p>
+  <textarea id="kommentti" placeholder="Write your remarks..."></textarea>
+  <p></p>
+  
+</div>
+
+<!-- Valmis tilaus / Asiakasnäkymä -->
+<div class="box" id="asiakasN">
+    <table id="valmistilaus">
+      <tr>
+        <!-- customer id, customer, invoice address, delivery address, deliverydate -->
+      </tr>
+        <tr id="valmistaulukko"></tr>
+    </table>
+
+    <table id="valmistilaus2">
+      <tr>
+        <!-- salesp, order id -->
+      </tr>
+        <tr id="valmistaulukko2"></tr>
+    </table>
+
+    <p id="valmisotsikko">Products :</p>
+    <table id="valmistuote">
+      <tr>
+        <th>Code</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+      </tr>
+      <tr id="valmistuoteT"></tr>
+    </table>
+
+    <table id="valmistilaus3">
+      <tr>
+        <!-- Total -->
+      </tr>
+        <tr id="valmistaulukko3"></tr>
+    </table>
+
+    <p id="kommentti1"></p>
+    <p></p>
+    <p></p>
+  </div>
+
+  </div>
+
+ <!-- Tuotteet -->
+
+<div id="luettelo" class="tabcontent">
+    <div>
+      <table id="tuotteet" class="taulukko2">
+        <tr class="header">
+          <th>Code</th>
+          <th>Product</th>
+          <th>Description</th>
+          <th>Supplier Code</th>
+          <th>Unit Price</th>
+          <th>Shelf Position</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr id="tuotetaulukko"></tr>
+      </table>
+    </div>
+  <div>
+  <button onclick="meneTop()" id="top4" title="Go to top">⇧</button>
+</div>
+
+</div>
+
+<!-- Kirjaudu ulos modal -->
+
+<div id="kokeilu" class="modal">
+  <span onclick="document.getElementById('kokeilu').style.display='none'" class="close" title="Kirjaudu">x</span>
+    <form class="modal-content" action="/action_page.php">
+      <div class="container">
+        <h1>Sign out</h1>
+        <p>Are you sure you want to sign out?</p>
+
+        <div class="clearfix">
+          <button type="button" onclick="document.getElementById('kokeilu').style.display='none'"  class="cancelbtn">Cancel</button>
+          <button type="button" onclick="KirjauduUlos()" class="signoutbtn">Sign out</button>
+        </div>
+      </div>
+    </form>
+</div>
+<script>
+  let modal = document.getElementById("varma");
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+<script>
+  let scrolltop = document.getElementById("top");
+  let scrolltop4 = document.getElementById("top4");
+  window.onscroll = function() {scroll()};
+</script>
+
+
+</body>
+</html>

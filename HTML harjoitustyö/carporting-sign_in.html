@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Carporting</title>
+    <link rel="stylesheet" href="carporting-sign_in.css">
+    <script src="carporting-sign_in.js"></script>
+  </head>
+  <body>
+    <div class="box">
+    <table>
+        <tr>
+            <td>
+              <label for="tunnus" id="label">Login:</label>
+            </td>
+            <td>
+                <input type="text" name="Käyttäjätunnus" id="tunnus"> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <label for="salsana" id="label2">Password:</label>
+            </td>
+            <td>
+                <input type="password" name="Salasana" id="salsana">
+            </td>
+        </tr>
+    </table>
+    
+    <input type="button" value="Sign in" id="kirjaudu" onclick="Kirjaudu()">
+    <p id="etukom">Login or password incorrect.</p>
+
+    </div>
+    <script>
+      //Enter näppäimellä aktivointi
+    let input = document.getElementById("tunnus");
+    input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("kirjaudu").click();
+    }
+});
+
+let input2 = document.getElementById("salsana");
+    input2.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("kirjaudu").click();
+    }
+});
+    </script>
+  </body>
+</html>

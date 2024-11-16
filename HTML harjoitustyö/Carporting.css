@@ -1,0 +1,391 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: lightskyblue;
+}
+
+img {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 170px;
+}
+
+/* Style the search box */
+#mySearch {
+  background-image: url('Kuva2.png'); /* Add a search icon to input */
+  background-position: 3px 7px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 70%;
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+  position: fixed;
+  z-index: 1;
+  margin-left: 172px;
+}
+
+* {box-sizing: border-box}
+
+/* Style the tab */
+.tab {
+    float: left;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    position: fixed;
+    z-index: 1;
+    margin-top: 60px;
+  }
+ 
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: inherit;
+    color: black;
+    border: none;
+    outline: none;
+    cursor: default;
+    padding: 22px 25px;
+    transition: 0.3s;
+    display: block;
+    text-align: left;
+    width: 100%;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    margin-left: 160px;
+    float: left;
+    display: none;
+    padding: 0px 12px;
+    border: none;
+    border-left: #ddd;
+    height: 300px;
+    width: 85%;
+  }
+
+  @media screen and (max-height: 450px) {
+    .tab {padding-top: 15px;}
+    .tab button {font-size: 15px;}
+  }
+
+/*Tilaus taulukko*/
+.taulukko2, .taulukko3 {
+  border-collapse: collapse;
+  width: 85%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-top: 60px;
+  background-color:rgb(229, 232, 248);
+}
+
+.taulukko2 th, .taulukko2 td, .taulukko3 th, .taulukko3 td  {
+  padding: 12px;
+}
+
+.taulukko2 tr, .taulukko3 tr {
+  border-bottom: 1px solid #ddd; 
+}
+
+.taulukko2 tr.header, .taulukko2 tr:hover, .taulukko3 tr.header, .taulukko3 tr:hover {
+  background-color: #f1f1f1;
+}
+
+/*Scroll to top -nappi*/
+#top, #top2, #top3, #top4 {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: rgb(198, 225, 245);
+  color: rgb(14, 13, 13);
+  cursor: default;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#top:hover, #top2:hover, #top3:hover, #top4:hover {
+  color: rgb(29, 142, 218);
+}
+
+/*Kirjaudu ulos modaali*/
+.cancelbtn, .signoutbtn {
+  float: left;
+  opacity:1;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: default;
+  width: 50%;
+  opacity: 0.9;
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the delete button */
+.signoutbtn {
+  background-color: #0b9ba5;
+}
+
+/* Add padding and center-align text to the container */
+.container {
+  padding: 16px;
+  text-align: center;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Modal Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #0b0b0b;
+  background-color: #474e5d;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(29, 142, 218);
+  cursor: default;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .deletebtn {
+     width: 100%;
+  }
+}
+
+/*@media screen and (max-height: 450px) {
+  #tilausnakyma {padding-top: 15px;}
+  #tilausnakyma {font-size: 15px;}
+} */
+
+/*X-nappula, vie takaisin tilausluetteloon*/
+#backB, #backB2 {
+  display: none;
+  position: static;
+  margin-left: 0px;
+  margin-top: 27px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  background-color: rgb(198, 225, 245);
+}
+#backB:hover, #backB:focus, #keraily:hover, #keraily:focus, #kerailyValmis:hover, #kerailyValmis:focus, #kerailyKesken:hover, #kerailyKesken:focus, #printB:hover, #printB:focus, #backB2:hover, #backB2:focus, #printB2:hover, #printB2:focus {
+  color: rgb(29, 142, 218);
+  cursor: default;
+}
+
+
+/*Keräilytila, Tilausnäkymä ja Asiakasnäkymä -välilehti*/
+#kerailytila, #tilausnakyma, #asiakasN, #asiakasN2 {
+  display: none;
+  position: relative;
+  background-color: rgb(229, 232, 248);
+  border: 1px solid #ddd;
+  font-size: 18px;
+  text-align: left;
+  border-collapse: collapse;
+  margin-right: 150px;
+}
+#kerailytila {
+  margin-top: 61px;
+}
+
+#tilausnakyma, #asiakasN, #asiakasN2 {
+  margin-top: 0px;
+}
+
+#kerailytila th, #kerailytila td, #tilausnakyma th, #tilausnakyma td, #asiakasN th, #asiakasN td, #asiakasN2 th, #asiakasN2 td  {
+  padding: 12px;
+}
+
+#kerailytila tr, #tilausnakyma tr, #asiakasN tr, #asiakasN2 tr {
+  border-bottom: 1px solid #ddd; 
+}
+
+/*Keräilytilan sisältö*/
+#kerailyotsikko, #kommenttiO {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-top: 40px;
+}
+#kerailyotsikko {
+  position: relative;
+}
+
+#kommenttiO {
+  position: static;
+}
+
+#kerailyT {
+  position: static;
+  width: 90%;
+  margin-left: 40px;
+  margin-top: 30px;
+}
+
+#kommentti {
+  position: static;
+  margin-left: 40px;
+  margin-top: 0px;
+  width: 90%;
+  height: 150px;
+  font-size: 16px;
+  text-align: left;
+}
+
+
+/*Tilaus- ja Asiakasnäkymän sisältö*/
+#tilausN, #valmistilaus, #valmistilaus5 {
+  position: relative;
+  float: left;
+  font-size: 20px;
+  margin-right: 250px;
+  text-align: left;
+  width: 60%;
+}
+
+#tilausN2, #valmistilaus2, #valmistilaus6 {
+  position: static;
+  float: right;
+  font-size: 20px;
+  margin-top: -240px;
+  text-align: right;
+}
+
+#tilatutT {
+  position: static;
+  float: none;
+  font-size: 20px;
+  margin-top: 350px;
+  width:100%;
+}
+
+#tilausN3 {
+  position: static;
+  font-size: 20px;
+  margin-top: 50px
+}
+
+#tilausN4, #valmistilaus3, #valmistilaus7 {
+  position: static;
+  float: right;
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 100px;
+}
+#tilausN4 {
+  margin-top: -135px;
+}
+#valmistilaus3, #valmistilaus7 {
+  margin-top: 0px;
+}
+
+#valmistuote, #valmistuote2 {
+  position: static;
+  margin-left: 40px;
+  margin-top: 60px;
+  width:90%;
+}
+
+#valmisotsikko, #valmisotsikko2 {
+  position: static;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 70px;
+  margin-left: 30px;
+  float: left;
+}
+#kommentti1, #kommenttiV {
+  position: static;
+  font-size: 20px;
+  text-align: left;
+  margin-top: 60px;
+  margin-left: 40px;
+  font-style: italic;
+}
+
+/*Valmis, Kesken, Keräilytila ja Tulosta-nappi*/
+#kerailyValmis, #printB, #keraily, #printB2 {
+  display: none;
+  position: static;
+  background-color: rgb(198, 225, 245);
+  float: right;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+}
+#kerailyValmis {
+  margin-top: 30px;
+}
+#kerailyValmis, #printB, #keraily, #printB2 {
+  margin-right: 150px;
+}
+/*Print ja Keräilytila-nappi*/
+#printB, #keraily, #printB2 {
+  margin-top: -30px;
+}

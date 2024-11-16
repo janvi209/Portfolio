@@ -1,0 +1,81 @@
+html {
+    font-family: Helvetica;
+}
+
+body {
+    display: flex;
+    margin: 0;
+    background-color: aliceblue;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    background-color: aquamarine;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+    border-radius: 5px;
+    text-align: center;
+    width: 250px;
+    height: auto;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+
+}
+
+h1 {
+    display: flex;
+    font-size: 34px;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.calculation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0 50px 0 0;
+}
+
+.calculation {
+    display: flex;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.answer {
+    display: flex;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+input {
+    display: flex;
+    width: 150px;
+    justify-content: center;
+    margin: 1px;
+    font-size: 14px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+    
+}
+
+button {
+    font-size: 14px;
+    margin: 1px;
+}
